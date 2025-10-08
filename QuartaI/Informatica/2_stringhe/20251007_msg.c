@@ -9,14 +9,19 @@ typedef char* String;
 int main(){
     String frase = NULL;
     int cnt = 0;
+    int capacita = 0;
     char c;
     c = getchar();
     while(c != '\n') {
-        frase = (String) realloc(frase, (cnt + 2 ) * sizeof(char));
-        if(frase == NULL){
-            printf("Ahia ahia :(");
-            return 1;
-        }
+        if(cnt + 1 > capacita){
+            capacita += 10;
+            frase = (String) realloc(frase, capacita * sizeof(char));
+            if(frase == NULL){
+                printf("Ahia ahia :(");
+                return 1;
+            }
+        }      
+        
         frase[cnt] = c;
         cnt++;
         
@@ -25,6 +30,7 @@ int main(){
     frase[cnt] = '\0';
     
     printf("%s", frase);
+
     free(frase);
 
     return 0;

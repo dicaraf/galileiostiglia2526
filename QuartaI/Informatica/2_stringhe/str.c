@@ -14,7 +14,7 @@ int main() {
     while ((c = getchar()) != '\n' && c != EOF) {
         if (size + 1 >= capacity) {
             capacity += 10; // rialloco a blocchi di 10
-            str = realloc(str, capacity * sizeof(char));
+            str = (String) realloc(str, capacity * sizeof(char));
             if (str == NULL) {
                 printf("Errore di allocazione\n");
                 return 1;
