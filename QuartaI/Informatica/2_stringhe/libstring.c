@@ -14,7 +14,7 @@ Stringa crea_stringa_dimensionata(int n){
         exit(1);
     }
     fgets(c, n, stdin);
-    //clear_buffer();
+    clear_buffer();
     return c;
 }
 
@@ -38,7 +38,7 @@ Stringa crea_stringa_dinamica(char terminator){
         str[size++] = c;
     }
     str[size] = '\0'; // aggiungo terminatore della stringa
-    //clear_buffer();
+
     return str;
 }
 
