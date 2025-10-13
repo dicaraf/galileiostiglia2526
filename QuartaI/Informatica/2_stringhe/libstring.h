@@ -50,5 +50,21 @@ int calcola_lunghezza_stringa(Stringa s);
  * @return stringa che unisce le due in input
  */
 Stringa concatena_stringhe(Stringa s1, Stringa s2, char separatore);
+
+/**
+ * Funziona che restituisce quante volte compare un carattere
+ * in una stringa.
+ * @param stringa s1 la stringa in cui cercare
+ * @param char carattere il carattere da cercare
+ * @return int numero di volte in cui compare il carattere
+ */
 int conta_occorrenze(Stringa s1, char carattere);
+
+/**
+ * Funziona che restituisce quante volte compare una stringa s2
+ * in una stringa s1.
+ * @param stringa s1 la stringa in cui cercare
+ * @param stringa s2 la stringa da cercare
+ * @return int numero di volte in cui compare la stringa s2 in s1
+ */
 int stringa_in_stringa(Stringa s1, Stringa s2);
