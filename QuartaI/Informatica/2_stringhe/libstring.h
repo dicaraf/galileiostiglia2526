@@ -68,3 +68,13 @@ int conta_occorrenze(Stringa s1, char carattere);
  * @return int numero di volte in cui compare la stringa s2 in s1
  */
 int stringa_in_stringa(Stringa s1, Stringa s2);
+
+
+/**Funzione che divide una stringa in due in base a un separatore
+ * e restituisce un'array di stringhe.
+ * @param Stringa s1 stringa in input
+ * @param char separatore 
+ * @return char**
+ * 
+ */
+char** dividi_stringa(Stringa s1, char separatore);

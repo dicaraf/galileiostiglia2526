@@ -4,7 +4,7 @@
 
 void clear_buffer() {
     int c;
-    while ((c = getchar()) != '\n' && c != EOF){}
+    while ((c = getchar()) != '\n'){}
 }
 
 Stringa crea_stringa_dimensionata(int n){
@@ -13,7 +13,7 @@ Stringa crea_stringa_dimensionata(int n){
         printf("Errore di allocazione!\n");
         exit(1);
     }
-    fgets(c, n, stdin);
+    fgets(c, n, stdin); //n=5 "ciao oggi è proprio divertente"
     clear_buffer();
     return c;
 }
@@ -102,4 +102,41 @@ int stringa_in_stringa(Stringa s1, Stringa s2){
         }
     }
     return cnt;
+}
+
+char** dividi_stringa(Stringa s1, char separatore){
+    char** risultato = NULL;
+    int lunghezza_totale = calcola_lunghezza_stringa(s1);
+    int lunghezza1 = 0, lunghezza2 = 0;
+    int i = 0;
+    risultato = (char**) malloc(2 * sizeof(Stringa));
+    //s1 "ciao,belli"\0
+    while(s1[i]!=separatore){
+        i++;
+    }
+    lunghezza1 = i + 1; //5
+    lunghezza2 = lunghezza_totale - lunghezza1;
+    risultato[0] = (Stringa) malloc(lunghezza1 * sizeof(char));
+    risultato[1] = (Stringa) malloc(lunghezza2 * sizeof(char));
+
+    for(int j = 0; j < lunghezza1; j++){
+        risultato[0][j] = s1[j];
+    }
+    risultato[0][lunghezza1] = '\0';
+    int cnt = 0;
+    for(int j=lunghezza1+1; j<lunghezza_totale; j++){
+        risultato[1][cnt] = s1[j];
+        cnt++;
+    }
+    risultato[1][lunghezza2] = '\0';
+
+    return risultato;
+}
+
+int main(){
+    char** qualcosa = dividi_stringa("ciao,belli", ',');
+
+    free(qualcosa[0]);
+    free(qualcosa[1]);
+    free(qualcosa);
 }
