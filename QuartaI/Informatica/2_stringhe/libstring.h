@@ -11,8 +11,9 @@
  * 9. dividi una stringa in due in base a un separatore
  * 10. trasforma caratteri da minuscolo a maiuscolo o viceversa
  */
-
+//Definizione di tipo Stringa
 typedef char* Stringa; 
+//Definizione di tipo Bool che può assumere valori true o false
 typedef enum {true, false} Bool;
 
 /**
@@ -75,11 +76,30 @@ int stringa_in_stringa(Stringa s1, Stringa s2);
  * e restituisce un'array di stringhe.
  * @param Stringa s1 stringa in input
  * @param char separatore 
- * @return char**
- * 
+ * @return char** che contiene le due stringhe separate
  */
 char** dividi_stringa(Stringa s1, char separatore);
+
+/** Funzione che presa una stringa in ingresso, ne restituisce 
+ * la copia in un'altra stringa
+ * @param   Stringa s1 stringa in input
+ * @return  Stringa copia della stringa
+ */
 Stringa crea_copia(Stringa s1);
+
+/** Funzione che prese due stringhe in ingresso, restituisce un booleano
+ * true se sono uguali oppure false se non sono identiche
+ * @param Stringa   s1 stringa in input
+ * @param Stringa   s2 stringa in input
+ * @return          Bool true o false se le stringhe sono identiche
+ */
 Bool equivalenti(Stringa s1, Stringa s2);
 
+/** Funzione che presa una stringa in ingresso, modifica la stringa
+ * modificando le maiuscole in minuscole o viceversa in base alla scelta
+ * dell'utente
+ * @param Stringa   s1 stringa in input
+ * @param Bool      maiusc_to_minusc, true se si vuole da maiuscolo a minuscolo, 
+ *                  false viceversa
+ */
 void maiuscole_minuscole(Stringa s1, Bool maiusc_to_minusc);
