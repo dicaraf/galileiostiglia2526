@@ -132,3 +132,36 @@ char** dividi_stringa(Stringa s1, char separatore){
 
     return risultato;
 }
+Stringa crea_copia(Stringa s1){
+    Stringa s2;
+    int lung=calcola_lunghezza_stringa(s1)+1;
+    s2=(Stringa)malloc(lung *sizeof(char));
+    for(int i=0; i<lung; i++){
+        s2[i]=s1[i];
+    }
+    return s2;
+}
+Bool equivalenti(Stringa s1, Stringa s2){
+    int lung1=calcola_lunghezza_stringa(s1)+1;
+    int lung2=calcola_lunghezza_stringa(s2)+1;
+    if(lung1==lung2){
+        for(int i=0; i<lung1; i++){
+            if(s1[i]!=s2[i]){
+                return false;
+            }
+        }return true;
+    }else return false;
+}
+int main(){
+    if(equivalenti("ciao", "ciao")){
+        printf("Le stringhe sono uguali");
+    } else {
+        printf("Le stringhe NON sono uguali");
+    }
+}
+void maiuscole_minuscole(Stringa s1, Bool maiusc_to_minusc){
+    int i=0;
+    if(maiusc_to_minusc){
+        while(s1[i] != '\0')
+    }
+}

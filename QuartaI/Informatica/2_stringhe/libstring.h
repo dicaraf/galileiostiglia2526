@@ -13,6 +13,7 @@
  */
 
 typedef char* Stringa; 
+typedef enum {true, false} Bool;
 
 /**
  * Pulisce il buffer stdin da eventuali caratteri residui rimasti dal precedente inserimento.
@@ -78,3 +79,7 @@ int stringa_in_stringa(Stringa s1, Stringa s2);
  * 
  */
 char** dividi_stringa(Stringa s1, char separatore);
+Stringa crea_copia(Stringa s1);
+Bool equivalenti(Stringa s1, Stringa s2);
+
+void maiuscole_minuscole(Stringa s1, Bool maiusc_to_minusc);
