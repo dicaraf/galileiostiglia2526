@@ -14,7 +14,7 @@
 //Definizione di tipo Stringa
 typedef char* Stringa; 
 //Definizione di tipo Bool che può assumere valori true o false
-typedef enum {true, false} Bool;
+typedef enum {false, true} Bool;
 
 /**
  * Pulisce il buffer stdin da eventuali caratteri residui rimasti dal precedente inserimento.
@@ -38,9 +38,9 @@ Stringa crea_stringa_dimensionata(int n);
 Stringa crea_stringa_dinamica(char terminator);
 
 /**
- * Funzione che restituisce il numero di caratteri di una stringa (senza il \0)
+ * Funzione che restituisce il numero di caratteri di una stringa (compreso il \0)
  * @param stringa c la stringa di cui calcolare la lunghezza
- * @return int il numero di caratteri (escluso \0)
+ * @return int il numero di caratteri (incluso \0)
  */
 int calcola_lunghezza_stringa(Stringa s);
 
