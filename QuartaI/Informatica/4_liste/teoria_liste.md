@@ -622,7 +622,3 @@ int main() {
     return 0;
 }
 ```
-
-## Conclusione
-
-Le liste sono strutture dati fondamentali in C che offrono grande flessibilità nella gestione della memoria. La scelta del tipo di lista dipende dai requisiti dell'applicazione: le liste semplicemente collegate sono ideali per la maggior parte dei casi, le liste bidirezionali quando occorre attraversare in entrambe le direzioni, e le liste circolari per applicazioni specifiche come buffer circolari. Una corretta implementazione delle funzioni di gestione e una meticolosa liberazione della memoria sono essenziali per scrivere codice affidabile e privo di memory leak.

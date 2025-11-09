@@ -625,7 +625,3 @@ int main() {
     return 0;
 }
 ```
-
-## Conclusione
-
-Pile e code sono strutture dati fondamentali che semplificano la soluzione di molti problemi algoritmici. Le pile sono ideali quando è necessario accedere agli elementi più recentemente aggiunti, mentre le code sono utili per gestire elementi in ordine di arrivo. La scelta tra l'implementazione con lista collegata e array dipende dai requisiti specifici dell'applicazione: le liste collegate offrono flessibilità di dimensionamento, mentre gli array offrono accesso diretto e migliore località di cache. Una corretta gestione della memoria e una chiara comprensione del principio LIFO e FIFO sono essenziali per sfruttare efficacemente queste strutture.
