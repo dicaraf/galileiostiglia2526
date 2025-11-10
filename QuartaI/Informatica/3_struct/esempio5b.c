@@ -22,7 +22,7 @@ int main() {
     a2 = (struct Alunno*)malloc(sizeof(struct Alunno));
     // Allocazione di memoria per una struct
     //p1 = (Persona*)malloc(sizeof(Persona)); //alternativa
-    p1 = (Persona*)malloc(sizeof(*p1));
+    p1 = malloc(sizeof(*p1));
     
     // Controllo se l'allocazione ha avuto successo
     if (p1 == NULL) {
