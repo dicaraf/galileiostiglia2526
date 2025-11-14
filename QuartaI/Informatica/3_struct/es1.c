@@ -19,7 +19,7 @@ typedef struct{
 
 void inserisci_libro(libro *l){
     printf("Dimmi il titolo del libro.");
-    //fgets(libri[i].titolo,30,stdin);
+    
     fgets(l -> titolo,30,stdin);
     printf("Dimmi il costo del libro.");
     scanf("%f", &(l -> costo));
