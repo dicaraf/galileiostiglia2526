@@ -31,7 +31,7 @@ typedef struct {
 } Nodo;
 ```
 
-Oppure, la forma più comune e consigliata:
+Oppure, la forma più comune e consigliata (garantisce di non avere problemi in fase di compilazione):
 
 ```c
 typedef struct Nodo {
