@@ -19,17 +19,22 @@ Lista* crea_lista() {
     return lista;
 }
 
-void inserisci_in_testa(Lista* lista, int valore) {
+void set_nodo(Nodo *n){
+    printf("Inserisci il valore per il nuovo nodo: ");
+    scanf("%d",&n->dato);
+}
+
+void inserisci_in_testa(Lista* lista) {
     Nodo* nuovoNodo = (Nodo*)malloc(sizeof(Nodo));
-    nuovoNodo->dato = valore;
+    set_nodo(nuovoNodo);
     nuovoNodo->next = lista->testa;
     lista->testa = nuovoNodo;
     lista->lunghezza++;
 }
 
-void inserisci_in_fondo(Lista* lista, int valore) {
+void inserisci_in_fondo(Lista* lista) {
     Nodo* nuovoNodo = (Nodo*)malloc(sizeof(Nodo));
-    nuovoNodo->dato = valore;
+    set_nodo(nuovoNodo);
     nuovoNodo->next = NULL;
     
     if (lista->testa == NULL) {
@@ -71,13 +76,13 @@ void libera_lista(Lista* lista) {
 int main() {
     Lista *l = crea_lista();
 
-    inserisci_in_testa(l, 10);
+    inserisci_in_testa(l);
     stampa_lista(l);
 
-    inserisci_in_testa(l, 20);
+    inserisci_in_testa(l);
     stampa_lista(l);
 
-    inserisci_in_fondo(l, 30);
+    inserisci_in_fondo(l);
     stampa_lista(l);
 
     libera_lista(l);
