@@ -11,8 +11,8 @@ typedef struct Auto {
     float prezzo_giorno;
 } Auto;
 
-void inserisciAuto(Auto* parco, int* n) {
-    parco = realloc(parco, (*n +1) * sizeof(Auto));
+Auto* inserisciAuto(Auto* parco, int* n) {
+    parco = (Auto*)realloc(parco, (*n + 1) * sizeof(Auto));
     char c;
     if(parco == NULL) {
         printf("Errore di allocazione");
@@ -31,7 +31,7 @@ void inserisciAuto(Auto* parco, int* n) {
     while((c = getchar()) != '\n') {}
     parco[*n] = nuova_auto;
     (*n)++;
-
+    return parco;
 }
 
 void stampaAuto(Auto* parco, int n){
@@ -59,7 +59,7 @@ int main(){
 
         switch (scelta) {
             case 1:
-                inserisciAuto(parco, &n_auto);
+                parco = inserisciAuto(parco, &n_auto);
             case 2:
                 stampaAuto(parco, n_auto);
             case 0:
