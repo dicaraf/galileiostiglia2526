@@ -10,7 +10,7 @@ typedef struct{
 
 }Auto;
 
-void inserisci_auto(Auto* parco, int*n){
+Auto* inserisci_auto(Auto* parco, int*n){
     Auto nuova_auto;
     printf("inserisci la targa dell'auto: ");
     fgets(nuova_auto.targa,8,stdin);
@@ -28,6 +28,7 @@ void inserisci_auto(Auto* parco, int*n){
     }
     parco[*n] = nuova_auto;
     (*n)++;
+    return parco;
 }
 
 void stampa_auto(Auto*parco, int n){
@@ -44,6 +45,29 @@ int main(){
     Auto*parco = NULL;
     int numero_auto = 0;
     int scelta;
+    do {
+        printf("1. aggiungi auto: \n 2. stampa auto: \n 3. Esci\n");
+        scanf("%d", &scelta);
+        getchar();
+        switch(scelta){
+            case 1:
+                parco = inserisci_auto(parco, &numero_auto);
+                break;
+            case 2:
+                if(numero_auto == 0){
+                    printf("non ci sono auto da stampare!  \n");
+                } else {
+                    stampa_auto(parco, numero_auto);
+                }
+                break;
+            case 3:
+                printf("Uscita dal programma...\n\n");
+                break;
+            default:
+                printf("Scelta non valida...\n");
+        }
+    }while(scelta != 3);
 
-    printf("1. aggiungi auto: \n 2. stampa auto: \n 3. ")
+    free(parco);
+    
 }
