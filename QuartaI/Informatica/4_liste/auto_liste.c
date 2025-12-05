@@ -57,10 +57,11 @@ void inserisciAuto(Lista* lista) {
 void stampaAuto(Lista* parco_auto){
     Auto* temp=parco_auto->testa;
     int i=0;
-    while(temp->next!=NULL){
+    while(temp!=NULL){
         printf("\n=== AUTO %d ===\n", i+1);
         printf("%s %s %s %f€/giorno\n", temp->targa, temp->marca, temp->modello, temp->prezzo_giorno);
         i++;
+        temp=temp->next;
     }
 }
 Lista* crea_lista(){
@@ -72,11 +73,8 @@ Lista* crea_lista(){
 }
 int main(){
     Lista *parco_auto=crea_lista();
-
-
     int scelta;
     char c;
-
     do {
         printf("\n===== AUTONOLEGGIO 2000 =====\n");
         printf("1. Inserisci nuova auto\n");
@@ -89,8 +87,10 @@ int main(){
         switch (scelta) {
             case 1:
                 inserisciAuto(parco_auto);
+                break;
             case 2:
                 stampaAuto(parco_auto);
+                break;
             case 0:
                 printf("Uscita dal programma.\n");
                 break;
