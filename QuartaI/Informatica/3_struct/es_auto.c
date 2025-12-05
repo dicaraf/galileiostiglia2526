@@ -9,6 +9,7 @@ typedef struct Auto {
     char marca[20];
     char modello[20];
     float prezzo_giorno;
+    struct Auto* next;
 } Auto;
 
 Auto* inserisciAuto(Auto* parco, int* n) {
@@ -59,7 +60,7 @@ int main(){
 
         switch (scelta) {
             case 1:
-                parco = inserisciAuto(parco, &n_auto);
+                parco = inserisciAuto(parco, &n_auto);\
             case 2:
                 stampaAuto(parco, n_auto);
             case 0:
