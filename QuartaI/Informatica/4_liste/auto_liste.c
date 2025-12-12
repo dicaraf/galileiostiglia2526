@@ -71,6 +71,7 @@ Lista* crea_lista(){
     return parco_auto;
     
 }
+
 int main(){
     Lista *parco_auto=crea_lista();
     int scelta;
