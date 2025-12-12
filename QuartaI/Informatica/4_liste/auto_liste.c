@@ -71,7 +71,28 @@ Lista* crea_lista(){
     return parco_auto;
     
 }
-
+void elimina_auto(char targa[],Lista* l){
+    Auto* temp= l->testa;
+    if(l->testa == NULL){
+        printf("la lista è vuota!!");
+        return ;
+    }
+    if(strcmp(temp->targa,targa)==0){
+        l->testa=l->testa->next;
+        free(temp);
+        l->lunghezza--;
+        return;
+    }
+    while(temp->next!= NULL){
+        if(strcmp(targa,temp->next->targa)==0){
+            Auto* temp2=temp->next;
+            temp->next=temp->next->next;
+            free(temp2);
+            l->lunghezza--;
+            return;
+        }
+    }
+}
 int main(){
     Lista *parco_auto=crea_lista();
     int scelta;
@@ -80,8 +101,10 @@ int main(){
         printf("\n===== AUTONOLEGGIO 2000 =====\n");
         printf("1. Inserisci nuova auto\n");
         printf("2. Visualizza auto\n");
+        printf("3. Elimina auto\n");
         printf("0. Esci\n");
         printf("Scelta: ");
+
         scanf("%d", &scelta);
         while((c = getchar()) != '\n') {}
 
@@ -91,6 +114,12 @@ int main(){
                 break;
             case 2:
                 stampaAuto(parco_auto);
+                break;
+            case 3: 
+                char t[9];
+                printf("inserisci la targa dell'auto che vuoi eliminare: ");
+                fgets(t, 9, stdin);
+                elimna_auto(t,parco_auto);
                 break;
             case 0:
                 printf("Uscita dal programma.\n");
