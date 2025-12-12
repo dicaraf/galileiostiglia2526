@@ -133,4 +133,3 @@ void stampa_playlist(Lista* playlist) {
 void cancella_canzone_playlist(Lista *playlist) {
     // TODO (rimuovere nodo gestendo i casi speciali)
 }
-
