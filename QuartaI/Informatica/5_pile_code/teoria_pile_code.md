@@ -540,7 +540,6 @@ Documento stampaDocumento(CodaStampa* coda) {
 Un'applicazione reale che combina le operazioni su pile è un calcolatore che valuta espressioni in notazione postfissa.
 La **valutazione di un’espressione postfissa** è il processo con cui si **calcola il risultato** di un’espressione matematica scritta in **notazione postfissa** (detta anche **notazione polacca inversa – RPN**).
 
----
 In un’espressione **postfissa** gli **operatori vengono dopo gli operandi**.
 
 **Esempio**
@@ -549,12 +548,10 @@ In un’espressione **postfissa** gli **operatori vengono dopo gli operandi**.
 
 In questo tipo di notazione **non servono parentesi**, perché l’ordine delle operazioni è già determinato dalla posizione degli operatori.
 
----
 “Valutare” un’espressione significa **eseguire i calcoli passo dopo passo** fino a ottenere il risultato finale.
 
 La valutazione delle espressioni postfisse si realizza tipicamente usando una **pila (stack)**.
 
----
 
 ## Algoritmo di valutazione
 1. Si legge l’espressione **da sinistra verso destra**
@@ -565,7 +562,7 @@ La valutazione delle espressioni postfisse si realizza tipicamente usando una **
    - si inserisce (**push**) il risultato nello stack
 4. Al termine dell’espressione, nello stack rimane **un solo valore**, che è il **risultato finale**
 
----
+
 
 ```c
 #include <stdio.h>
