@@ -6,10 +6,10 @@
 
 typedef struct Auto {
     char targa[9];
-    char marca[20];
-    char modello[20];
+    char marca[50];
+    char modello[50];
     float prezzo_giorno;
-    struct Auto* next;
+    //struct Auto* next;
 } Auto;
 
 Auto* inserisciAuto(Auto* parco, int* n) {
@@ -43,7 +43,22 @@ void stampaAuto(Auto* parco, int n){
 }
 
 int main(){
-    Auto* parco = NULL;
+    int num_auto = 10;
+    Auto* tante_auto = (Auto*)malloc(num_auto*sizeof(Auto));
+    tante_auto = (Auto*)realloc(tante_auto, 11*sizeof(Auto));
+    for(int i=0; i<11; i++) {
+        tante_auto[i].prezzo_giorno = i;
+
+    }
+    //eliminare auto con prezzo = 5
+    for(int i = 0; i < 11; i++){
+        if(tante_auto[i].prezzo_giorno == 5) {
+            for(int j = i + 1; j < 11; j++){
+                tante_auto[j-1] = tante_auto[j];
+            }
+        }
+    }
+    tante_auto = (Auto*)realloc(tante_auto, 10*sizeof(Auto));
     int n_auto = 0;
 
     int scelta;
