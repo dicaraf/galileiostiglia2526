@@ -10,7 +10,7 @@ typedef struct {
 void salvaStudenti(const char *nomeFile, Studente studenti[], int n) {
     FILE *f = fopen(nomeFile, "wb");
     if ( f == NULL) {
-        perror("Errore apertura file");
+        printf("Errore apertura file");
         return;
     }
     
@@ -27,7 +27,7 @@ void salvaStudenti(const char *nomeFile, Studente studenti[], int n) {
 int caricaStudenti(const char *nomeFile, Studente studenti[], int maxDim) {
     FILE *f = fopen(nomeFile, "rb");
     if ( f == NULL) {
-        perror("Errore apertura file");
+        printf("Errore apertura file");
         return 0;
     }
     
@@ -48,7 +48,7 @@ int caricaStudenti(const char *nomeFile, Studente studenti[], int maxDim) {
 int leggiStudente(const char *nomeFile, int indice, Studente *s) {
     FILE *f = fopen(nomeFile, "rb");
     if ( f == NULL) {
-        perror("Errore apertura file");
+        printf("Errore apertura file");
         return 0;
     }
     
@@ -56,12 +56,12 @@ int leggiStudente(const char *nomeFile, int indice, Studente *s) {
     long offset = sizeof(int) + indice * sizeof(Studente);
     
     if (fseek(f, offset, SEEK_SET) != 0) {
-        perror("Errore fseek");
+        printf("Errore fseek");
         fclose(f);
         return 0;
     }
     
-    size_t letti = fread(s, sizeof(Studente), 1, f);
+    int letti = fread(s, sizeof(Studente), 1, f);
     fclose(f);
     
     return (letti == 1);
@@ -70,19 +70,19 @@ int leggiStudente(const char *nomeFile, int indice, Studente *s) {
 int modificaStudente(const char *nomeFile, int indice, Studente *s) {
     FILE *f = fopen(nomeFile, "r+b");
     if ( f == NULL) {
-        perror("Errore apertura file");
+        printf("Errore apertura file");
         return 0;
     }
     
     long offset = sizeof(int) + indice * sizeof(Studente);
     
     if (fseek(f, offset, SEEK_SET) != 0) {
-        perror("Errore fseek");
+        printf("Errore fseek");
         fclose(f);
         return 0;
     }
     
-    size_t scritti = fwrite(s, sizeof(Studente), 1, f);
+    int scritti = fwrite(s, sizeof(Studente), 1, f);
     fclose(f);
     
     return (scritti == 1);
