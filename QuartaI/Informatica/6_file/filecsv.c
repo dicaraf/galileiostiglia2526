@@ -53,7 +53,7 @@ int caricaStudentiCSV(char *nomeFile, Studente studenti[], int maxDim) {
     return letti;
 }
 
-int leggiStudenteCSV(const char *nomeFile, int indice, Studente *s) {
+int leggiStudenteCSV(char *nomeFile, int indice, Studente *s) {
     FILE *f = fopen(nomeFile, "r");
     if (f == NULL) {
         printf("Errore apertura file");
@@ -80,14 +80,14 @@ int leggiStudenteCSV(const char *nomeFile, int indice, Studente *s) {
     return 1;
 }
 
-int modificaStudenteCSV(const char *nomeFile, int indice, const Studente *nuovo) {
+int modificaStudenteCSV(char *nomeFile, int indice, Studente *nuovo) {
     FILE *in = fopen(nomeFile, "r");
     if (in == NULL) {
         printf("Errore apertura file");
         return 0;
     }
 
-    const char *tmpName = "tmp_classe.csv";
+    char *tmpName = "tmp_classe.csv";
     FILE *out = fopen(tmpName, "w");
     if (out == NULL) {
         printf("Errore apertura file temporaneo");
