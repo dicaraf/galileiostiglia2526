@@ -7,7 +7,7 @@ typedef struct {
     float voto;
 } Studente;
 
-void salvaStudenti(const char *nomeFile, Studente studenti[], int n) {
+void salvaStudenti(char *nomeFile, Studente studenti[], int n) {
     FILE *f = fopen(nomeFile, "wb");
     if ( f == NULL) {
         printf("Errore apertura file");
@@ -24,7 +24,7 @@ void salvaStudenti(const char *nomeFile, Studente studenti[], int n) {
     printf("Salvati %d studenti.\n", n);
 }
 
-int caricaStudenti(const char *nomeFile, Studente studenti[], int maxDim) {
+int caricaStudenti(char *nomeFile, Studente studenti[], int maxDim) {
     FILE *f = fopen(nomeFile, "rb");
     if ( f == NULL) {
         printf("Errore apertura file");
@@ -45,7 +45,7 @@ int caricaStudenti(const char *nomeFile, Studente studenti[], int maxDim) {
     return n;
 }
 
-int leggiStudente(const char *nomeFile, int indice, Studente *s) {
+int leggiStudente(char *nomeFile, int indice, Studente *s) {
     FILE *f = fopen(nomeFile, "rb");
     if ( f == NULL) {
         printf("Errore apertura file");
@@ -67,7 +67,7 @@ int leggiStudente(const char *nomeFile, int indice, Studente *s) {
     return (letti == 1);
 }
 
-int modificaStudente(const char *nomeFile, int indice, Studente *s) {
+int modificaStudente(char *nomeFile, int indice, Studente *s) {
     FILE *f = fopen(nomeFile, "r+b");
     if ( f == NULL) {
         printf("Errore apertura file");
