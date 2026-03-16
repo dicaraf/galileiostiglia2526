@@ -38,7 +38,7 @@ int caricaStudentiCSV(char *nomeFile, Studente studenti[], int maxDim) {
     char line[256];
 
     // Salta header CSV
-    if (!fgets(line, sizeof(line), f)) {
+    if (fgets(line, sizeof(line), f) == NULL) {
         fclose(f);
         return 0;
     }
@@ -46,6 +46,7 @@ int caricaStudentiCSV(char *nomeFile, Studente studenti[], int maxDim) {
     int letti = 0;
     Studente s;
     while (letti < maxDim && fscanf(f, "%d,%49[^,],%f", &s.id, s.nome, &s.voto) == 3) {
+        //studenti = (Studente*)realloc(studenti, (letti+1)*sizeof(Studente));
         studenti[letti++] = s;
     }
 
