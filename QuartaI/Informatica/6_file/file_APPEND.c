@@ -18,14 +18,11 @@ void scriviAppend(const char *nomeFile) {
     while (1) {
         fgets(buffer, sizeof(buffer), stdin);
 
-        // rimuove newline
-        buffer[strcspn(buffer, "\n")] = '\0';
 
-        if (strcmp(buffer, "FINE") == 0) {
+        if (strcmp(buffer, "FINE\n") == 0) {
             break;
         }
 
-        strcat(buffer, "\n"); // riaggiungo newline per il file
         fputs(buffer, fp);
     }
 
