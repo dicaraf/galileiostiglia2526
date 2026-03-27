@@ -3,7 +3,7 @@
 #include <string.h>
 
 // Funzione per scrivere in append
-void scriviAppend(const char *nomeFile) {
+void scriviAppend(char *nomeFile) {
     FILE *fp = fopen(nomeFile, "a");
 
     if (fp == NULL) {
@@ -31,7 +31,7 @@ void scriviAppend(const char *nomeFile) {
 }
 
 // Funzione per leggere il file
-void leggiFile(const char *nomeFile) {
+void leggiFile(char *nomeFile) {
     FILE *fp = fopen(nomeFile, "r");
 
     if (fp == NULL) {
