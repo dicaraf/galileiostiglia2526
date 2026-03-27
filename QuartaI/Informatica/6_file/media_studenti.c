@@ -33,7 +33,9 @@ void scriveStudenti(char *nome_file, int n_studenti) {
     if (ferror(f)) {
         printf("Errore durante la scrittura del file.\n");
     }
-    fclose(f);
+    if(fclose(f) != 0) {
+        printf("Errore chiusura file!\n");
+    }
 }
 
 Studente *leggiStudenti(char *nome_file, int *n) {
@@ -63,7 +65,9 @@ Studente *leggiStudenti(char *nome_file, int *n) {
     if (ferror(f)) {
         printf("Errore durante la lettura del file.\n");
     }
-    fclose(f);
+    if(fclose(f) != 0) {
+        printf("Errore chiusura file!\n");
+    }
 
     return array;
 }
