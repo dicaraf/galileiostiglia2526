@@ -137,13 +137,17 @@ void inserisci_canzone_lista(Lista *l) {
 
 void ricerca_canzone_artista(Lista *l, char* artista) {
     Canzone* temp = l->testa;
-    
+    int trovata = 0;
+    printf("Ricerca canzoni dell'artista %s.......\n", artista);
     while (temp != NULL) {
         if (strcmp(temp->artista, artista) == 0) {
             stampa_canzone(temp);
+            trovata = 1;
         }
         temp = temp->next;
     }
+    if(trovata == 0) 
+        printf("Non è stata trovata nessuna canzone per l'artista selezionato\n");
 }
 
 void libera_memoria(Lista* l) {
@@ -168,7 +172,10 @@ void inserisci_canzone_playlist(Lista *lista, Lista *playlist) {
         }
         temp = temp->next;
     }
-    
+    if(temp == NULL) {
+        printf("Canzone non trovata!!!\n");
+        return;
+    }
     if (playlist->testa == NULL) {
         playlist->testa = temp;
         temp->next_playlist = temp;  // Punta a se stesso
@@ -231,5 +238,6 @@ void cancella_canzone_playlist(Lista *playlist) {
         }
         current = current->next;
     }
+    printf("Canzone non trovata e non eliminata!\n");
 }
 
