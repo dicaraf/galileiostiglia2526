@@ -3,7 +3,7 @@
 
 #include "tipi.h"
 
-#define PERCORSO_SAVE "save/partita.sav"
+#define PERCORSO_SAVE "../save/partita.sav"
 
 /* Scrive lo stato sul file binario; restituisce 1 se ok */
 int salva_partita(const Eroe *e, Stanza **stanze, int n);
