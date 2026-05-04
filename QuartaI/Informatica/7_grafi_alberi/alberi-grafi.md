@@ -250,6 +250,8 @@ void postOrder(Nodo *node) {
 
 ### 7.4 Visita in ampiezza (BFS) su albero binario
 
+![Visite preorder, inorder e postorder su un albero binario](https://media.geeksforgeeks.org/wp-content/uploads/20240216084522/bfs-vs-dfs-(1).png)
+
 La BFS su un albero binario può essere implementata con una coda di puntatori a `Nodo`:
 
 ```c
