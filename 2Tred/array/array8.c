@@ -3,21 +3,25 @@ riempire un'array di 7 elementi.
 Dire se l'array è palindromo.*/
 
 #include <stdio.h>
+#define DIM 100
 
 int main() {
-    int numeri[7], palindromo = 0;
+    int numeri[DIM], palindromo = 0;
 
-    for(int i = 0; i < 7; i++) {
+    for(int i = 0; i < DIM; i++) {
         printf("Riempi array in posizione %d", i);
         scanf("%d", &numeri[i]);
     }
 
-    for(int i = 0; i < 7/2; i++) {
-        if(numeri[i] == numeri[6 - i]) {
+    for(int i = 0; i < DIM/2; i++) {
+        if(numeri[i] == numeri[DIM - 1 - i]) {
             palindromo++;
         }
     }
-    if(palindromo == 3) {
+    if(palindromo == DIM / 2) {
         printf("L'array è palindromoooooooooo");
+    } else {
+        printf("NO.");
     }
+    return 0;
 }
