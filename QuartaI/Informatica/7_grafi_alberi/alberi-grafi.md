@@ -170,17 +170,6 @@ typedef Nodo *Albero;            // tipo puntatore alla radice dell'albero
 
 L’uso di `typedef` permette di riferirsi alla struttura con nomi più semplici (`Albero` invece di `struct Nodo *`).
 
-Una versione più generica può usare un tipo astratto per il dato:
-
-```c
-typedef int Tatomo;              // tipo del dato (modificabile)
-
-typedef struct elem {
-    Tatomo info;
-    struct elem *sx, *dx;
-} nodo, *albero;
-```
-
 ### 7.2 Funzioni primitive sugli alberi binari
 
 Alcune funzioni primitive utili sono:
@@ -261,6 +250,8 @@ void postOrder(Nodo *node) {
 
 ### 7.4 Visita in ampiezza (BFS) su albero binario
 
+![Visite preorder, inorder e postorder su un albero binario](https://media.geeksforgeeks.org/wp-content/uploads/20240216084522/bfs-vs-dfs-(1).png)
+
 La BFS su un albero binario può essere implementata con una coda di puntatori a `Nodo`:
 
 ```c
@@ -281,7 +272,27 @@ void bfsTree(Nodo *root) {
     }
 }
 ```
+```c
+void bfsTree(Nodo *root) {
+    if (root == NULL) return;
 
+    Queue *q = createQueue();
+    enqueue(q, root);
+
+    while (!isEmpty(q)) {
+        Nodo *curr = dequeue(q);
+        printf("%d ", curr->info);
+
+        if (curr->left != NULL)
+            enqueue(q, curr->left);
+
+        if (curr->right != NULL)
+            enqueue(q, curr->right);
+    }
+
+    free(q); // libera la struct della coda
+}
+```
 ---
 
 ## 8. Alberi binari di ricerca (BST)
